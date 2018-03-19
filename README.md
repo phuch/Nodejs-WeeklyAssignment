@@ -4,7 +4,7 @@
 
 [Live Demo](https://phuch.github.io/ServerSideScriptingLanguage-Week1/)
 
-Or you can build the game locally by:
+Or you can build the page locally by:
 
 1. Clone this repository
 2. Run:
