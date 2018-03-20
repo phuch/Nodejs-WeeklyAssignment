@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import ImageCards from './components/ImageCards';
+import Modal from './components/Modal';
 
 class App extends Component {
 
@@ -44,17 +45,32 @@ class App extends Component {
           "image": "http://placekitten.com/769/720",
           "original": "http://placekitten.com/2039/1920"
         }
-      ]
+      ],
+      showModal: false,
+      modalInfo: null
     }
   }
+
+  toggleModal = (info) => {
+    this.setState({
+      showModal: !this.state.showModal,
+      modalInfo: info
+    })
+  }
+
   render() {
     return (
       <div className="App">
         <ul className="img-container">
           {this.state.images.map((image) => {
-            return <li className="img-card" key={image.id}><ImageCards image={image}/></li>
+            return (
+              <li className="img-card" key={image.id}>
+                <ImageCards toggleModal={this.toggleModal} image={image}/>
+              </li>
+            );
           })}
         </ul>
+        {this.state.showModal && <Modal modalInfo={this.state.modalInfo} show={this.state.showModal} toggleModal={this.toggleModal}/>}
       </div>
     );
   }
