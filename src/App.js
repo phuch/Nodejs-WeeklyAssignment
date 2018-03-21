@@ -59,17 +59,31 @@ class App extends Component {
   }
 
   render() {
+    const categories = this.state.images
+                        .map((image) => image.category)
+                        .filter(
+                          (category,index, self) => index === self.indexOf(category)
+                        );
+
     return (
       <div className="App">
-        <ul className="img-container">
-          {this.state.images.map((image) => {
-            return (
-              <li className="img-card" key={image.id}>
-                <ImageCards toggleModal={this.toggleModal} image={image}/>
-              </li>
-            );
-          })}
-        </ul>
+        {categories.map((category) => {
+          return (
+            <ul className="img-container">
+              <h2>{category}</h2>
+              {this.state.images.filter((img) => img.category == category)
+                                .map((img)=> {
+                                  return (
+                                    <li className="img-card" key={img.id}>
+                                      <ImageCards toggleModal={this.toggleModal} image={img}/>
+                                    </li>
+                                  );
+                                })
+              }
+            </ul>
+          );
+        })}
+
         {this.state.showModal && <Modal modalInfo={this.state.modalInfo} show={this.state.showModal} toggleModal={this.toggleModal}/>}
       </div>
     );

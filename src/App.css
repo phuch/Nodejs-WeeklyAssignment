@@ -34,6 +34,11 @@
   position: relative !important;
   width: 450px;
 }
+
+.posted-time {
+  font-size: 12px;
+  font-weight: 900;
+}
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

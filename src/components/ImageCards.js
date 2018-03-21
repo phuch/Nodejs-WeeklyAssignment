@@ -18,6 +18,7 @@ class ImageCards extends Component {
         <img className="card-img-top" src={this.props.image.thumbnail} alt="Card" style={{width:'100%'}}/>
         <div className="card-body">
           <h4 className="card-title">{this.props.image.title}</h4>
+          <p className="card-text posted-time">{this.props.image.time}</p>
           <p className="card-text">{this.props.image.details}</p>
           <button className="btn btn-primary" onClick={() => this.showModal(this.props.image)}>View</button>
         </div>
