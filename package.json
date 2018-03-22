@@ -6,8 +6,11 @@
   "dependencies": {
     "bootstrap": "^4.0.0-alpha.6",
     "gh-pages": "^1.1.0",
+    "google-map-react": "^0.34.0",
+    "google-maps-react": "^1.1.6",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react-dom": "^16.2.0",
+    "react-google-maps": "^9.4.5"
   },
   "devDependencies": {
     "react-scripts": "1.1.1"

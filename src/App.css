@@ -39,6 +39,12 @@
   font-size: 12px;
   font-weight: 900;
 }
+
+.google-map {
+  position: relative;
+  height: 30% !important;
+  width: 40% !important;
+}
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
