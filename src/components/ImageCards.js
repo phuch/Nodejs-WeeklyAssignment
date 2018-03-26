@@ -8,7 +8,7 @@ const ImageCards = (props) =>  {
         <h4 className="card-title">{props.image.title}</h4>
         <p className="card-text posted-time">{props.image.time}</p>
         <p className="card-text">{props.image.details}</p>
-        <button className="btn btn-primary" onClick={() => this.props.toggleModal(props.image)}>View</button>
+        <button className="btn btn-primary" onClick={() => props.toggleModal(props.image)}>View</button>
       </div>
     </div>
   );
