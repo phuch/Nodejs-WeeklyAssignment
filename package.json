@@ -2,7 +2,7 @@
   "name": "untitled1",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://phuch.github.io/ServerSideScriptingLanguage-Week1",
+  "homepage": "https://phuch.github.io/Nodejs-WeeklyAssignment",
   "dependencies": {
     "bootstrap": "^4.0.0-alpha.6",
     "exif-js": "^2.3.0",

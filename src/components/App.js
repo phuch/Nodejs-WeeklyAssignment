@@ -19,7 +19,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    axios.get('https://raw.githubusercontent.com/phuch/ServerSideScriptingLanguage-Week1/master/data.json')
+    axios.get('https://raw.githubusercontent.com/phuch/Nodejs-WeeklyAssignment/master/data.json')
     .then(res => {
       this.setState({images: res.data});
     });
