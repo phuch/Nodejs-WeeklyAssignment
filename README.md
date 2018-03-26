@@ -2,7 +2,7 @@
 
 ## Demo 
 
-[Live Demo](https://phuch.github.io/ServerSideScriptingLanguage-Week1/)
+[Live Demo](https://phuch.github.io/Nodejs-WeeklyAssignment/)
 
 Or you can build the page locally by:
 
