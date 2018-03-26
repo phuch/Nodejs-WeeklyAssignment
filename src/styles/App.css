@@ -45,6 +45,23 @@
   height: 30% !important;
   width: 40% !important;
 }
+
+.img-form {
+  margin-top: 30px;
+}
+
+.img-preview {
+  display: block;
+  margin: 20px auto;
+  width: 70%;
+}
+
+.submit-btn {
+  width: 150px;
+  display: block !important;
+  margin: 0 auto;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

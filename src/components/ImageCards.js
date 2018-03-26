@@ -1,20 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class ImageCards extends Component {
-
-  render() {
-    return (
-      <div className="card">
-        <img className="card-img-top" src={this.props.image.thumbnail} alt="Card" style={{width:'100%'}}/>
-        <div className="card-body">
-          <h4 className="card-title">{this.props.image.title}</h4>
-          <p className="card-text posted-time">{this.props.image.time}</p>
-          <p className="card-text">{this.props.image.details}</p>
-          <button className="btn btn-primary" onClick={() => this.props.toggleModal(this.props.image)}>View</button>
-        </div>
+const ImageCards = (props) =>  {
+  return (
+    <div className="card">
+      <img className="card-img-top" src={props.image.thumbnail} alt="Card" style={{width:'100%'}}/>
+      <div className="card-body">
+        <h4 className="card-title">{props.image.title}</h4>
+        <p className="card-text posted-time">{props.image.time}</p>
+        <p className="card-text">{props.image.details}</p>
+        <button className="btn btn-primary" onClick={() => this.props.toggleModal(props.image)}>View</button>
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 export default ImageCards;
