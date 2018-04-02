@@ -14,21 +14,26 @@ class Modal extends Component {
           <div className="modal">
             <div className="modal-content">
               <div className="modal-header">
-                <button type="button" className="close" onClick={this.props.toggleModal}>&times;</button>
                 <h4 className="modal-title">{this.props.modalInfo.title}</h4>
+                <button type="button" className="close" onClick={this.props.toggleModal}>&times;</button>
               </div>
               <div className="modal-body">
-                <Map
-                  className="google-map"
-                  google={this.props.google}
-                  zoom={12}
-                  center={{
-                    lat: this.props.modalInfo.coordinates.lat,
-                    lng: this.props.modalInfo.coordinates.lng
-                  }}
-                >
-                  <Marker position={{ lat: this.props.modalInfo.coordinates.lat, lng: this.props.modalInfo.coordinates.lng }} />
-                </Map>
+                {this.props.modalInfo.coordinates &&
+                  <Map
+                      className="google-map"
+                      google={this.props.google}
+                      zoom={12}
+                      center={{
+                        lat: this.props.modalInfo.coordinates.lat,
+                        lng: this.props.modalInfo.coordinates.lng
+                      }}
+                  >
+                    <Marker position={{
+                      lat: this.props.modalInfo.coordinates.lat,
+                      lng: this.props.modalInfo.coordinates.lng
+                    }}/>
+                  </Map>
+                }
                 <img src={this.props.modalInfo.image} alt="thumb" width="100%"/>
               </div>
               <div className="modal-footer">

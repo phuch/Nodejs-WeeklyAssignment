@@ -19,7 +19,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    axios.get('https://raw.githubusercontent.com/phuch/Nodejs-WeeklyAssignment/master/data.json')
+    axios.get('http://localhost:8080/recipes/')
     .then(res => {
       this.setState({images: res.data});
     });
@@ -42,7 +42,7 @@ class App extends Component {
     return (
       <Tabs>
         <TabList>
-          <Tab>View</Tab>
+          <Tab>Recipes</Tab>
           <Tab>Add</Tab>
         </TabList>
         <TabPanel>
@@ -54,7 +54,7 @@ class App extends Component {
                   {this.state.images.filter((img) => img.category === category)
                                     .map((img)=> {
                                       return (
-                                        <li className="img-card" key={img.id}>
+                                        <li className="img-card" key={img._id}>
                                           <ImageCards toggleModal={this.toggleModal} image={img}/>
                                         </li>
                                       );
@@ -68,7 +68,7 @@ class App extends Component {
           </div>
         </TabPanel>
         <TabPanel>
-          <h2>Upload images</h2>
+          <h2>Add a recipe</h2>
           <Form/>
         </TabPanel>
       </Tabs>
