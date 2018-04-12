@@ -67,6 +67,44 @@
   margin: 0 auto;
 }
 
+.search-container {
+  width: 300px;
+  margin: 20px auto;
+}
+
+.search-container input{
+  padding: 6px 20px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: 1px solid #CECECE;
+  border-right: none;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+
+}
+
+.search-container button {
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: transparent;
+  font-size: 17px;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  border-bottom-right-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.search-container input:focus,.search-container button:focus {
+  outline:0;
+}
+
+.search-empty {
+  color: #B8B8B8;
+  text-align: center;
+  margin-top: 30px;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

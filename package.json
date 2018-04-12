@@ -20,6 +20,7 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-google-maps": "^9.4.5",
+    "react-icons": "^2.2.7",
     "react-tabs": "^2.2.1",
     "sharp": "^0.20.1"
   },

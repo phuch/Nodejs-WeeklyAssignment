@@ -128,12 +128,27 @@ const updateDataToDB = (req,res) => {
   });
 };
 
-// get all recipe
+// get all recipes or find recipes by name
 app.get('/recipes', (req, res) => {
-  Recipe.find().then(recipes => {
-    res.send(recipes);
-  });
+  if (req.query.search) {
+    console.log('searching');
+    const regex = new RegExp(escapeRegex(req.query.search), 'gi');
+    Recipe.find({title: regex}, (err, recipe) => {
+      if (err)
+        console.log(err);
+
+      if(!recipe)
+        return res.status(404).send({message: "Recipe not found"});
+
+      res.send(recipe);
+    });
+  } else {
+    Recipe.find().then(recipes => {
+      res.send(recipes);
+    });
+  }
 });
+
 
 // upload recipe
 app.post('/recipes', upload.single('file'), (req, res, next) => {
@@ -169,4 +184,8 @@ app.delete('/recipes/:id', (req,res) => {
 const toDecimal = (gpsData,ref) => {
   let coordinate = gpsData[0] + gpsData[1]/60 + gpsData[2]/3600;
   return (ref == "S" || ref == "W") ? coordinate*-1 : coordinate;
+};
+
+const escapeRegex = (text) => {
+  return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
 };
