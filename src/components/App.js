@@ -6,6 +6,7 @@ import Modal from './Modal';
 import Form from './Form';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import axios from 'axios';
+import EditForm from './EditForm';
 
 class App extends Component {
 
@@ -14,7 +15,9 @@ class App extends Component {
     this.state = {
       images: [],
       showModal: false,
-      modalInfo: null
+      showEditForm: false,
+      modalInfo: null,
+      recipeInfo: null
     }
   }
 
@@ -29,8 +32,22 @@ class App extends Component {
     this.setState({
       showModal: !this.state.showModal,
       modalInfo: info
+    });
+  };
+
+  toggleEditForm = (info) => {
+    this.setState({
+      showEditForm: !this.state.showEditForm,
+      recipeInfo: info
     })
-  }
+  };
+
+  deleteRecipe = () => {
+    axios.get('http://localhost:8080/recipes/')
+    .then(res => {
+      this.setState({images: res.data});
+    });
+  };
 
   render() {
     const categories = this.state.images
@@ -64,7 +81,23 @@ class App extends Component {
               );
             })}
 
-            {this.state.showModal && <Modal modalInfo={this.state.modalInfo} show={this.state.showModal} toggleModal={this.toggleModal}/>}
+            {this.state.showModal &&
+              <Modal modalInfo={this.state.modalInfo}
+                     show={this.state.showModal}
+                     toggleModal={this.toggleModal}
+                     deleteRecipe={this.deleteRecipe}
+                     editRecipe={this.toggleEditForm}
+                     toggleEditForm={this.toggleEditForm}
+              />
+            }
+
+            {this.state.showEditForm &&
+              <EditForm show={this.state.showEditForm}
+                        toggleEditForm={this.toggleEditForm}
+                        recipeInfo={this.state.recipeInfo}
+                        showEditForm={this.state.showEditForm}
+              />
+            }
           </div>
         </TabPanel>
         <TabPanel>

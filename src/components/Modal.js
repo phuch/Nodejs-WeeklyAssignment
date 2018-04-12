@@ -1,8 +1,27 @@
 import React, { Component } from 'react';
 import {Map, Marker, GoogleApiWrapper} from 'google-maps-react';
+import axios from 'axios';
+
 const GOOGLE_MAP_KEY = 'AIzaSyBs07YNX4Jell2IAOW0NasfblozQAHki7Y';
 
 class Modal extends Component {
+
+  handleDelete = () => {
+    console.log('handle delete recipe');
+    const url = '/recipes/' + this.props.modalInfo._id;
+    axios.delete(url)
+    .then((res) => {
+      this.props.toggleModal();
+      this.props.deleteRecipe();
+      console.log(res);
+    })
+    .catch((error) => {console.log(error);});
+  };
+
+  handleEdit = () => {
+    this.props.toggleModal();
+    this.props.toggleEditForm(this.props.modalInfo);
+  };
 
   render() {
 
@@ -37,7 +56,8 @@ class Modal extends Component {
                 <img src={this.props.modalInfo.image} alt="thumb" width="100%"/>
               </div>
               <div className="modal-footer">
-                <button type="button" className="btn btn-primary" onClick={this.props.toggleModal}>Close</button>
+                <button type="button" className="btn btn-primary" onClick={this.handleEdit}>Edit</button>
+                <button type="button" className="btn btn-primary" onClick={this.handleDelete}>Delete</button>
               </div>
             </div>
           </div>

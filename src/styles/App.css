@@ -35,6 +35,11 @@
   width: 450px;
 }
 
+.modal-body {
+  max-height: calc(100vh - 150px);
+  overflow-y: auto;
+}
+
 .posted-time {
   font-size: 12px;
   font-weight: 900;
@@ -47,7 +52,7 @@
 }
 
 .img-form {
-  margin-top: 30px;
+  margin-top: 10px;
 }
 
 .img-preview {

@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://phuch.github.io/Nodejs-WeeklyAssignment",
   "dependencies": {
+    "body-parser": "^1.18.2",
     "bootstrap": "^4.0.0-alpha.6",
     "cors": "^2.8.4",
     "exif-js": "^2.3.0",
@@ -15,6 +16,7 @@
     "moment": "^2.21.0",
     "mongoose": "^5.0.12",
     "multer": "^1.3.0",
+    "nodemon": "^1.17.3",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-google-maps": "^9.4.5",
@@ -26,6 +28,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "node": "nodemon server.js",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "predeploy": "npm run build",
